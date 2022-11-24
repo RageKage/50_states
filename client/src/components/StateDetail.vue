@@ -1,0 +1,39 @@
+<template>
+  <div class="state-info">
+    <span class="state-name">{{ state.name }}</span>
+
+    <div>
+    <input type="checkbox"  class="visit-state">
+  </div>
+  </div>
+
+</template>
+
+<script>
+export default {
+  name: "StateDetail",
+  props: {
+    state: Object,
+  },
+};
+</script>
+
+<style scoped>
+
+.state-info {
+    padding: 1 rem;
+    height: 8 rem;
+    width: 10rem;
+    border: 1px solid gainsboro;
+    border-radius: 0.3rem;
+    background-color: whitesmoke;
+}
+
+.visit-state {
+    margin: 1rem;
+    text-align: center;
+}
+
+
+
+</style>
