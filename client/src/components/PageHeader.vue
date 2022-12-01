@@ -2,6 +2,11 @@
   <div id="block-header">
     <h1 id="title">Have you visited every state?</h1>
   </div>
+  <div>
+    <p> start watching vid 11-17</p>
+  </div>
+
+
 </template>
 
 <script>

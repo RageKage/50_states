@@ -1,6 +1,7 @@
 <template>
   <div>
     <div id="navigation-links">
+      
       <span class="nav-link">
         <router-link to="/">Home</router-link>
       </span>
@@ -11,8 +12,9 @@
 
     <p>
       Header image by
-      <a href="https://unsplash.com/photos/iDzKdNI7Qgc">@jordanmadrid</a>
+      <a href="https://unsplash.com/photos/iDzKdNI7Qgc">@jordanmadrid</a> 
     </p>
+    <p><a href="https://www.freepik.com/free-vector/location_2900811.htm#query=map%20pin%20icon&position=0&from_view=keyword">Map Icon by rawpixel.com</a> on Freepik</p>
   </div>
 </template>
 

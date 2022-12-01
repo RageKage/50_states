@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p> You stoped at 8:50 watching vid 7</p>
     <page-header></page-header>
     <router-view></router-view>
     <page-footer></page-footer>
