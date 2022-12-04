@@ -11,10 +11,26 @@ router.get("/states", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+// this will return info about one state
+router.get("/state/:name", (req, res, next) => {
+  let stateName = req.params.name;
+  States.findOne({ where: { name: stateName } })
+    .then((state) => {
+      if (state) {
+        return res.json(state);
+      } else {
+        return res.status(404).send("Not Found");
+      }
+    })
+    .catch((err) => {
+      return next(err);
+    });
+});
+
+// this updates if a state is visited or not
 router.patch("/states/:name", (req, res, next) => {
   let stateName = req.params.name;
   let stateVisited = req.body.visited;
-
 
   States.update({ visited: stateVisited }, { where: { name: stateName } })
     .then((rowsUpdated) => {
@@ -22,7 +38,7 @@ router.patch("/states/:name", (req, res, next) => {
       if (numberOfRows === 1) {
         return res.send("ok");
       }
-      return res.status(404).send("State not found"); 
+      return res.status(404).send("State not found");
     })
     .catch((err) => {
       return next(err);

@@ -11,11 +11,15 @@
     </div>
     <div>
       <!-- this will take you to the map of the state you click on and the route is going to look like /map/Minnesota -->
-      <router-link v-bind:to="{name:'StateMap', params: {state: state.name}}">
-        <img class="map-icon" src="@/assets/25530.jpg" alt="link to state map">
+      <router-link
+        v-bind:to="{ name: 'StateMap', params: { state: state.name } }"
+      >
+        <img
+          class="map-icon"
+          src="@/assets/25530.jpg"
+          alt="link to state map"
+        />
       </router-link>
-
-
     </div>
   </div>
 </template>
@@ -23,20 +27,22 @@
 <script>
 export default {
   name: "StateDetail",
-  emits:['update-visited'],
+  emits: ["update-visited"],
   props: {
+    // this is a sent from the StateList
     state: Object,
   },
-  data(){
+  data() {
     return {
-      visited: this.state.visited
-    }
+      visited: this.state.visited,
+    };
   },
   methods: {
-    visitedChanged(){
-      this.$emit('update-visited', this.state.name, this.visited)
-    }
-  }
+    visitedChanged() {
+      // this will emit it to the parent component the state name and if the state has been visited
+      this.$emit("update-visited", this.state.name, this.visited);
+    },
+  },
 };
 </script>
 
@@ -55,7 +61,7 @@ export default {
   text-align: center;
 }
 
-.map-icon{
+.map-icon {
   width: 2rem;
   height: 2rem;
 }
