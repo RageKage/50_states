@@ -1,15 +1,16 @@
 <template>
   <div>
-    <p>There are {{ states.length }} states</p>
-    <p>States you visited: {{ totalVisits }} {{ units }}</p>
-    <p id="all-visited-ms" v-if="allVisited">
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaav
-    </p>
+    <h3>There are {{ states.length }} states</h3>
+    <h4 v-show="totalVisits">States you visited: {{ totalVisits }} {{ units }}</h4>
+    <h3 id="all-visited-ms" v-show="allVisited">Congratulations!, You have successfully visited all the 51 states </h3>
+    <!-- <p>There are {{ states.length }} states</p> -->
+    <!-- <p>States you visited: {{ totalVisits }} {{ units }}</p> -->
+    <!-- <p id="all-visited-ms" v-show="allVisited">Congratulations!, You have successfully visited all the 51 states </p> -->
   </div>
 </template>
 
 <script>
-import swal from "sweetalert";
+// import swal from "sweetalert";
 
 export default {
   name: "StateSummary",
@@ -28,28 +29,30 @@ export default {
     },
     units() {
       if (this.totalVisits == 1) {
-        return "state";
+        return "State";
       } else {
-        return "states";
+        return "States";
       }
     },
     allVisited() {
-        // TODO fix this error that shows up in the when it should not be showing up and ask clara how to get around it
-    //   if (this.totalVisits == this.states.length) {
-    //     return alert('it should show up')
-    //     // swal(
-    //     //   "Congratulations!",
-    //     //   "You have successfully visited all the 51 states"
-    //     // ); 
+      return  this.totalVisits === this.states.length
+      
+      // swal(
+      //   "Congratulations!",
+      //     "You have successfully visited all the 51 states" 
+      //     ); 
     
-    //   } else {
 
-    //         alert('it should not show up')
-        
-    //   }
+    
+ 
     },
   },
 };
 </script>
 
-<style></style>
+<style>
+
+#all-visited-ms {
+  color: red;
+}
+</style>

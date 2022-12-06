@@ -56,6 +56,7 @@ export default {
       this.$stateService
         .getOneState(this.state.name)
         .then((state) => {
+          console.log(state.name)
           this.state = state;
           this.dataReady = true; // when the data is ready it will be true
         })

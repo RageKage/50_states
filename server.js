@@ -1,7 +1,14 @@
 let express = require("express");
 let states_api = require("./routes/states");
+let path = require('path')
 
 let app = express();
+
+// this will join together the vue app 
+let vueAppPath = path.join(__dirname,'client', 'dist')
+
+// this will make it so we can run the vue app through the server 3000 instead of 8080
+app.use(express.static(vueAppPath))
 
 app.use(express.json());
 

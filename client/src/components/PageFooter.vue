@@ -10,6 +10,9 @@
       <span class="nav-links">
         <router-link class="nav-link" to="/about">About this site</router-link>
       </span>
+      <span class="nav-links">
+        <router-link class="nav-link" to="/Visited">Visited States</router-link>
+      </span>
     </div>
   </div>
 </template>
@@ -23,7 +26,6 @@ export default {
 <style scoped>
 .router-link-exact-active {
   padding: 10px;
-  /* background: #4b5668; */
   background: #f6f4f2;
   border-radius: 5px;
   color: black;
@@ -39,6 +41,10 @@ export default {
   text-decoration: none;
 }
 .nav-link {
+  border-radius: 4px;
+  height: 100;
+  margin: auto;
+  padding: 10px;
   text-decoration: none;
 }
 a {
@@ -47,9 +53,13 @@ a {
 .navs {
   background-color: #dda882;
   border-radius: 4px;
-  width: 400px;
+  width: 600px;
   height: 100;
   margin: auto;
   padding: 10px;
+}
+
+.nav-link:hover{
+    background-color: #ce824b;
 }
 </style>

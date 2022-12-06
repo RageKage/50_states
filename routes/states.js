@@ -1,4 +1,5 @@
 let express = require("express");
+const { config } = require("../.sequelizerc");
 let States = require("../models").States;
 
 let router = express.Router();
@@ -36,7 +37,7 @@ router.patch("/states/:name", (req, res, next) => {
     .then((rowsUpdated) => {
       let numberOfRows = rowsUpdated[0];
       if (numberOfRows === 1) {
-        return res.send("ok");
+        return res.send('ok');
       }
       return res.status(404).send("State not found");
     })
@@ -45,4 +46,13 @@ router.patch("/states/:name", (req, res, next) => {
     });
 });
 
+router.get("/states/:name", (req, res, next) => {
+  States.findAll({where: {visited: true,},}) // this will find any state that returns true if they been visited
+    .then((state) => {
+      return res.send(state)
+    })
+    .catch((err) => {
+      return next(err);
+    });
+});
 module.exports = router;
