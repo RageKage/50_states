@@ -2,9 +2,6 @@
   <div id="block-header">
     <h1 id="title">Have you visited every state?</h1>
   </div>
-  <!-- <div>
-    <p> start watching vid 13-16</p>
-  </div> -->
 </template>
 
 <script>
@@ -19,12 +16,6 @@ export default {
 </script>
 
 <style scoped>
-/* #block-header {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background: cadetblue;
-    } */
-
 #block-header {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
@@ -32,7 +23,6 @@ export default {
   background-color: saddlebrown;
   background-image: url("~@/assets/map_header.jpg");
   background-position: center;
-  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 

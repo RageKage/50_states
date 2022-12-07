@@ -2,11 +2,13 @@
   <div>
     <div>
       <h1>You've visited these states</h1>
-      <h2>A grand total of {{this.states.length}} states</h2>
-      <p id="visited-states" v-for="state in states" :key="state.name">{{state.name}}</p>
+      <!-- <h2>{{ units }} total of {{ this.states.length }} states</h2> -->
+      <h2>Total {{ units }}  : {{this.states.length}}</h2>
+      <p id="visited-states" v-for="state in states" :key="state.name">
+        {{ state.name }}
+      </p>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -35,6 +37,16 @@ export default {
         });
     },
   },
+  computed: {
+    units() {
+      if (this.states.length >= 1) {
+        return "States";
+      } else {
+        return "State";
+      }
+      
+    },
+  },
 };
 </script>
 
@@ -49,11 +61,10 @@ export default {
   height: 100;
   margin: auto;
   padding: 10px;
-  display:inline-table;
+  display: inline-table;
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem;
   text-align: center;
-
 }
 </style>

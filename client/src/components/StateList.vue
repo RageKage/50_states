@@ -30,7 +30,7 @@ export default {
     };
   },
   mounted() {
-    this.fetchAllStates();
+    this.fetchAllStates(); // not sure what it does but it calls a method to run 
     // what is mounted mean? and why is it calling to the one of the functions inside the methods
   },
   methods: {
