@@ -10,12 +10,35 @@
 </template>
 
 <script>
-// import swal from "sweetalert";
+import swal from "sweetalert";
 
 export default {
   name: "StateSummary",
   props: {
     states: Array,
+  },
+  mounted() {
+    if (this.allVisited) {
+      this.showAllVisitedAlert()
+    }
+  },
+  methods: {
+    showAllVisitedAlert() {
+      swal(
+        "Congratulations!",
+          "You have successfully visited all the 51 states" 
+          );
+      }
+  },
+  watch: {
+    // https://vuejs.org/guide/essentials/watchers.html
+    // watchers take an action every time a data or computed property changes
+    // the argument is the latest value of the data/computed property 
+    allVisited(vistedEverywhere) {
+      if (vistedEverywhere) {
+        this.showAllVisitedAlert()
+      }
+    }
   },
   computed: {
     totalVisits() {
@@ -35,15 +58,14 @@ export default {
       }
     },
     allVisited() {
-      return  this.totalVisits === this.states.length
-      
+
+      // this method is called every time anything changes
       // swal(
       //   "Congratulations!",
       //     "You have successfully visited all the 51 states" 
       //     ); 
-    
-
-    
+          
+          return  this.totalVisits === this.states.length
  
     },
   },
